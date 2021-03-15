@@ -15,9 +15,9 @@ def postReceiveApp():
         return handleRequest(request)
 
 def handleRequest(request):
-        url = request.json['repository']['url'] + ".git"
+        url = request.json['repository']['git_url']
         repoName = request.json['repository']['name']
-        
+
         t = threading.Thread(target=thread_function, args=(repoName, url))
         t.start()
 
